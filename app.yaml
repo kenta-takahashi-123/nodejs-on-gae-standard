@@ -1,0 +1,22 @@
+runtime: nodejs8
+instance_class: F1
+automatic_scaling:
+  max_instances: 2
+  min_idle_instances: 0
+  max_idle_instances: 1
+  min_pending_latency: 1500ms
+  max_pending_latency: automatic
+  max_concurrent_requests: 80
+skip_files:
+- \.idea
+- \.git
+- node_modules
+- src-client
+handlers:
+- url: /assets
+  static_dir: src-server/public/assets
+
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto

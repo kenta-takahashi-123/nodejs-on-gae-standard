@@ -1,8 +1,7 @@
 import * as Rx from "rxjs";
 import { ajax } from "rxjs/ajax";
 import { catchError, map } from "rxjs/operators";
-import { Status } from "../../../src-shared/api/api_response";
-import { SessionApiResponse } from "../../../src-shared/api/session_api_response";
+import { Status, SessionApiResponse } from "../../../src-shared/response";
 import { Session } from "../../../src-shared/entity";
 
 export class ApiCaller {

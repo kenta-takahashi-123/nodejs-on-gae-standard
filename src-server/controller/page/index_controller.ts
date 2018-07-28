@@ -1,10 +1,16 @@
 import * as Express from "express";
 import { AuthenticationService } from "../../service/authentication_service";
+import { Status, PageResponse } from "../../../src-shared/response";
 
 export class IndexController {
-  static get(req: Express.Request, res: Express.Response) {
+  static get(req: Express.Request): PageResponse {
     let user = AuthenticationService.authenticate({ id: req.query.session });
     let name = (user === null) ? "world" : `${user.first_name} ${user.family_name}`;
-    res.status(200).render('index', { locals: { name } });
+    return {
+      status: Status.Success, 
+      templateName: "index", 
+      title: `Hello, ${name}!`,
+      params: {name}
+    };
   }
 }

@@ -13,7 +13,7 @@
     "build": "webpack --progress --mode production",
     "compile": "tsc",
     "deploy": "npm run build && gcloud app deploy --project=PROJECT_NAME --stop-previous-version --quiet",
-    "start": "tsc && node src-server/app.js",
+    "start": "tsc && NODE_ENV=production node src-server/app.js",
     "start:local": "npm-run-all compile --parallel start:local:*",
     "start:local:client": "webpack --progress --mode development --watch",
     "start:local:compile": "tsc -w --preserveWatchOutput",
@@ -23,15 +23,17 @@
     "node": "8.x.x"
   },
   "dependencies": {
-    "express": "^4.16.3",
-    "express-es6-template-engine": "^2.0.4"
   },
   "devDependencies": {
     "@types/express": "^4.16.0",
+    "@types/ejs": "^2.6.0",
     "@types/node": "^8.10.21",
     "autoprefixer": "^9.0.0",
+    "express": "^4.16.3",
+    "ejs": "^2.6.1",
     "css-loader": "^1.0.0",
     "mini-css-extract-plugin": "^0.4.1",
+    "morgan": "^1.9.0",
     "node-sass": "^4.9.0",
     "nodemon": "^1.18.3",
     "npm-run-all": "^4.1.3",

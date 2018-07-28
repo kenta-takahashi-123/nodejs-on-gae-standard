@@ -1,5 +1,5 @@
 import { User } from "../entity/user";
-import { Status } from "./api_response";
+import { Status } from "./status";
 
 export type SessionApiResponse = SessionApiResponseSuccess | SessionApiResponseNotFound
 export type SessionApiResponseSuccess = {

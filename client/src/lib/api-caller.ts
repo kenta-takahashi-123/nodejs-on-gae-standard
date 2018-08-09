@@ -2,7 +2,7 @@ import * as Rx from "rxjs";
 import { ajax } from "rxjs/ajax";
 import { catchError, map } from "rxjs/operators";
 import { Status, SessionApiResponse } from "shared/response";
-import { Session } from "shared/entity/session";
+import { Session } from "shared/entity";
 
 export class ApiCaller {
   authenticate(session: Session): Rx.Observable<SessionApiResponse> {

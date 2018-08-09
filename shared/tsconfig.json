@@ -16,20 +16,13 @@
       "es2017",
       "dom"
     ],
-    "baseUrl": ".",
-    "paths": {
-      "shared/*": [
-        "./shared/src/*"
-      ]
-    }
+    "composite": true
   },
   "include": [
-    "./client/src/**/*",
-    "./server/src/**/*",
-    "./shared/src/**/*"
+    "src/**/*"
   ],
   "exclude": [
-    "node_modules",
+    "../node_modules",
     "**/*.spec.ts"
   ]
 }

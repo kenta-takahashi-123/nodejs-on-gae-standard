@@ -11,13 +11,15 @@
   },
   "scripts": {
     "build": "webpack --progress --mode production",
-    "compile": "tsc",
+    "compile": "npm-run-all compile:*",
+    "compile:server": "tsc --build server/tsconfig.json",
+    "compile:client": "tsc --build client/tsconfig.json",
     "deploy": "npm run build && gcloud app deploy --project=PROJECT_NAME --stop-previous-version --quiet",
-    "start": "tsc && NODE_ENV=production node -r tsconfig-paths/register server/src/app.js",
-    "start:local": "npm-run-all compile --parallel start:local:*",
-    "start:local:client": "webpack --progress --mode development --watch",
+    "start": "tsc && NODE_ENV=production node -r tsconfig-paths/register -p server/tsconfig.json server/src/app.js",
+    "start:local": "npm-run-all --parallel compile:* --parallel start:local:*",
+    "start:local:client": "webpack --config webpack.config.js --progress --mode development --watch",
     "start:local:compile": "tsc -w --preserveWatchOutput",
-    "start:local:server": "nodemon -r tsconfig-paths/register server/src/app.js"
+    "start:local:server": "nodemon -r tsconfig-paths/register -p server/tsconfig.json server/src/app.js"
   },
   "engines": {
     "node": "8.x.x"
@@ -41,7 +43,7 @@
     "sass-loader": "^7.0.3",
     "ts-loader": "^4.4.2",
     "tsconfig-paths": "^3.5.0",
-    "typescript": "^2.9.2",
+    "typescript": "^3.0.1",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.0.8"
   }

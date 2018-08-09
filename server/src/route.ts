@@ -34,8 +34,8 @@ app.route('/api/v1/sessions/:sessionId').get((req: Ex.Request, res: Ex.Response)
 app.use('/assets', express.static(__dirname + '/../public/assets'));
 
 // error handling
-app.use((err: Error, req: Ex.Request, res: Ex.Response, _next: any) => {
-  console.error(err.message); // TODO logging
+app.use((_err: Error, req: Ex.Request, res: Ex.Response, _next: any) => {
+  // TODO logging
   if (req.path.startsWith("/api")) {
     Controller.api(res, {
       status: 500

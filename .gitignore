@@ -29,6 +29,9 @@ server/src/**/*.js.map
 shared/src/**/*.js.map
 shared/src/**/*.d.ts
 
+# Secret files
+server/src/server_config.ts
+
 # empty directory
 !**/.gitkeep
 

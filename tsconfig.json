@@ -15,12 +15,18 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "shared/*": [
+        "./shared/src/*"
+      ]
+    }
   },
   "include": [
-    "./client/**/*",
-    "./server/**/*",
-    "./shared/**/*"
+    "./client/src/**/*",
+    "./server/src/**/*",
+    "./shared/src/**/*"
   ],
   "exclude": [
     "node_modules",

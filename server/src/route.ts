@@ -2,7 +2,7 @@ import * as Ex from "express";
 import { IndexController } from "./controller/page/index_controller";
 import { SessionApiController } from "./controller/api/session_api_controller";
 import { Controller } from "./controller/controller";
-import { Env } from "../../shared/src/env";
+import { Env } from "shared/env";
 
 const express = require('express');
 const renderer = require('ejs');

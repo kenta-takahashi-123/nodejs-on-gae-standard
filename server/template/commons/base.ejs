@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title><%= pageTitle %></title>
-  <link type="text/css" href="assets/styles.bundle.css"/>
+  <%# <!--suppress HtmlUnknownTarget --> %>
+  <link rel="stylesheet" type="text/css" href="assets/styles.bundle.css"/>
 </head>
 <body>
- <%- include('../' + includes, params) %>
+  <%- include('../' + includes, params) %>
+  <%# <!--suppress HtmlUnknownTarget --> %>
   <script src="assets/main.bundle.js"></script>
 </body>
 </html>

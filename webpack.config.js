@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const buildPath = {
   source: path.join(__dirname, 'client/src/'),
   styles: path.join(__dirname, 'client/scss/'),
@@ -34,6 +35,11 @@ module.exports = (env, argv) => {
           filename: "styles.bundle.css"
         })
       ],
+      resolve: {
+        plugins: [
+          new TsconfigPathsPlugin()
+        ]
+      },
       devtool: isDevelopment ? "inline-source-map" : false,
       module: {
         rules: [

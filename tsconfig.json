@@ -18,9 +18,9 @@
     ]
   },
   "include": [
-    "src-client/**/*",
-    "src-common/**/*",
-    "src-server/**/*"
+    "./client/**/*",
+    "./server/**/*",
+    "./shared/**/*"
   ],
   "exclude": [
     "node_modules",

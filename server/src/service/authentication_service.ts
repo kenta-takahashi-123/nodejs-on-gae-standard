@@ -1,4 +1,4 @@
-import { Session, User } from "../../src-shared/entity";
+import { Session, User } from "../../../shared/src/entity";
 
 export class AuthenticationService {
   static authenticate(session: Session): User | null {

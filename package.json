@@ -13,11 +13,11 @@
     "build": "webpack --progress --mode production",
     "compile": "tsc",
     "deploy": "npm run build && gcloud app deploy --project=PROJECT_NAME --stop-previous-version --quiet",
-    "start": "tsc && NODE_ENV=production node src-server/app.js",
+    "start": "tsc && NODE_ENV=production node server/src/app.js",
     "start:local": "npm-run-all compile --parallel start:local:*",
     "start:local:client": "webpack --progress --mode development --watch",
     "start:local:compile": "tsc -w --preserveWatchOutput",
-    "start:local:server": "nodemon src-server/app.js"
+    "start:local:server": "nodemon server/src/app.js"
   },
   "engines": {
     "node": "8.x.x"

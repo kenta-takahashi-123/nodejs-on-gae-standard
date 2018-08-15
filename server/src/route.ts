@@ -2,7 +2,7 @@ import * as Ex from "express";
 import { IndexController } from "./controller/page/index_controller";
 import { SessionApiController } from "./controller/api/session_api_controller";
 import { Controller } from "./controller/controller";
-import { Env } from "../src-shared/env";
+import { Env } from "../../shared/src/env";
 
 const express = require('express');
 const renderer = require('ejs');
@@ -18,7 +18,7 @@ if (env === Env.Development) {
 
 // html renderer
 app.engine('html', renderer.render);
-app.set('views', __dirname + '/template');
+app.set('views', __dirname + '/../template');
 app.set('view engine', 'ejs');
 
 // applications
@@ -31,7 +31,7 @@ app.route('/api/v1/sessions/:sessionId').get((req: Ex.Request, res: Ex.Response)
 
 // static files
 // - if modified, also modify app.yaml
-app.use('/assets', express.static(__dirname + '/public/assets'));
+app.use('/assets', express.static(__dirname + '/../public/assets'));
 
 // error handling
 app.use((err: Error, req: Ex.Request, res: Ex.Response, _next: any) => {

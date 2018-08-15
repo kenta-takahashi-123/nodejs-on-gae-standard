@@ -1,6 +1,6 @@
 import * as Express from "express";
 import { AuthenticationService } from "../../service/authentication_service";
-import { Status, PageResponse } from "../../../src-shared/response";
+import { Status, PageResponse } from "../../../../shared/src/response";
 
 export class IndexController {
   static get(req: Express.Request): PageResponse {

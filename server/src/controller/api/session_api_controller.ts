@@ -1,6 +1,6 @@
 import * as Express from "express";
 import { AuthenticationService } from "../../service/authentication_service";
-import { SessionApiResponse } from "../../../src-shared/response";
+import { SessionApiResponse } from "../../../../shared/src/response";
 
 export class SessionApiController {
   static get(req: Express.Request): SessionApiResponse {

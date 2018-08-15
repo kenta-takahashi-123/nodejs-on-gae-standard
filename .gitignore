@@ -15,21 +15,21 @@ pids
 node_modules/
 
 # Build files
-src-server/public/assets/main.bundle.js
-src-server/public/assets/styles.bundle.css
-src-server/public/assets/main.bundle.js.map
-src-server/public/assets/styles.bundle.css.map
+server/public/assets/main.bundle.js
+server/public/assets/styles.bundle.css
+server/public/assets/main.bundle.js.map
+server/public/assets/styles.bundle.css.map
 
 # Compiled files
-src-client/**/*.js
-src-server/**/*.js
-src-shared/**/*.js
-src-client/**/*.js.map
-src-server/**/*.js.map
-src-shared/**/*.js.map
+client/**/*.js
+server/**/*.js
+shared/**/*.js
+client/**/*.js.map
+server/**/*.js.map
+shared/**/*.js.map
 
 # empty directory
 !**/.gitkeep
 
 # Node.js top
-!src-server/app.js
+!server/src/app.js

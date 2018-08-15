@@ -1,4 +1,4 @@
-import { ApiResponse, PageResponse } from "../../src-shared/response";
+import { ApiResponse, PageResponse } from "../../../shared/src/response";
 import * as Express from "express";
 
 export class Controller {

@@ -1,9 +1,9 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const buildPath = {
-  src: path.join(__dirname, 'src-client/typescript/'),
-  styles: path.join(__dirname, 'src-client/scss/'),
-  output: path.join(__dirname, 'src-server/public/assets/')
+  source: path.join(__dirname, 'client/src/'),
+  styles: path.join(__dirname, 'client/scss/'),
+  output: path.join(__dirname, 'server/public/assets/')
 };
 const autoPrefixerTargetBrowsers = [
   "last 1 versions",
@@ -22,7 +22,7 @@ module.exports = (env, argv) => {
   return [
     {
       entry: [
-        path.join(buildPath.src, 'main.ts'),
+        path.join(buildPath.source, 'main.ts'),
         path.join(buildPath.styles, 'index.scss')
       ],
       output: {

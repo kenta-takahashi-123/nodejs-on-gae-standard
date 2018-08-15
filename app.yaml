@@ -11,10 +11,10 @@ skip_files:
 - \.idea
 - \.git
 - node_modules
-- src-client
+- client
 handlers:
 - url: /assets
-  static_dir: src-server/public/assets
+  static_dir: server/public/assets
 
 - url: /.*
   secure: always

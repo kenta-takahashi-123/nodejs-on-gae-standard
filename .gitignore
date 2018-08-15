@@ -21,12 +21,13 @@ server/public/assets/main.bundle.js.map
 server/public/assets/styles.bundle.css.map
 
 # Compiled files
-client/**/*.js
-server/**/*.js
-shared/**/*.js
-client/**/*.js.map
-server/**/*.js.map
-shared/**/*.js.map
+client/src/**/*.js
+server/src/**/*.js
+shared/src/**/*.js
+client/src/**/*.js.map
+server/src/**/*.js.map
+shared/src/**/*.js.map
+shared/src/**/*.d.ts
 
 # empty directory
 !**/.gitkeep

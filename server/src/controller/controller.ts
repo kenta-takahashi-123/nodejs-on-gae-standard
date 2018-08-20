@@ -1,15 +1,16 @@
-import { ApiResponse, PageResponse } from "shared/response";
+import { ApiResponse, PageResponse } from "../../../shared/src/response";
 import * as Express from "express";
 
 export class Controller {
-  static api(r: Express.Response, response: ApiResponse) {
-    r.status(response.status).send(response).end();
+  static api(r: Express.Response, response: Promise<ApiResponse>, next: any) {
+    response.then(resp => r.status(resp.status).send(resp).end()).catch(next);
   }
-  static page(r: Express.Response, response: PageResponse) {
-    r.status(response.status).render('commons/base', {
-      includes: response.templateName, 
-      pageTitle: response.title,
-      params: response.params 
-    })
+
+  static page(r: Express.Response, response: Promise<PageResponse>, next: any) {
+    response.then(resp => r.status(resp.status).render('commons/base', {
+      includes: resp.templateName,
+      pageTitle: resp.title,
+      params: resp.params
+    })).catch(next);
   }
 }

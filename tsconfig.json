@@ -16,12 +16,7 @@
       "es2017",
       "dom"
     ],
-    "baseUrl": ".",
-    "paths": {
-      "shared/*": [
-        "./shared/src/*"
-      ]
-    }
+    "baseUrl": "."
   },
   "include": [
     "./client/src/**/*",

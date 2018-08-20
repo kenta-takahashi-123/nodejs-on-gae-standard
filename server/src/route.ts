@@ -2,7 +2,8 @@ import * as Ex from "express";
 import { IndexController } from "./controller/page/index_controller";
 import { SessionApiController } from "./controller/api/session_api_controller";
 import { Controller } from "./controller/controller";
-import { Env } from "shared/env";
+import { Env } from "../../shared/src/env";
+import {ChatApiController} from "./controller/api/chat_api_controller";
 
 const express = require('express');
 const renderer = require('ejs');
@@ -23,29 +24,36 @@ app.set('view engine', 'ejs');
 
 // applications
 // - page
-app.route('/').get((req: Ex.Request, res: Ex.Response) =>
-  Controller.page(res, IndexController.get(req)));
+app.route('/').get((req: Ex.Request, res: Ex.Response, next: any) =>
+    Controller.page(res, IndexController.get(req), next));
 // - api
-app.route('/api/v1/sessions/:sessionId').get((req: Ex.Request, res: Ex.Response) =>
-  Controller.api(res, SessionApiController.get(req)));
+app.route('/api/v1/sessions/:sessionId').get((req: Ex.Request, res: Ex.Response, next: any) =>
+    Controller.api(res, SessionApiController.get(req), next));
+app.route('/api/v1/chats').get((_req: Ex.Request, res: Ex.Response, next: any) =>
+    Controller.api(res, ChatApiController.get(), next));
+app.route('/api/v1/chats').post((req: Ex.Request, res: Ex.Response, next: any) =>
+    Controller.api(res, ChatApiController.post(req), next));
 
 // static files
 // - if modified, also modify app.yaml
 app.use('/assets', express.static(__dirname + '/../public/assets'));
+app.use('/loaderio-e361c7eaca7bf514d3b83b1064fd9380.txt', express.static(__dirname + '/../public/loaderio-e361c7eaca7bf514d3b83b1064fd9380.txt'));
 
 // error handling
-app.use((err: Error, req: Ex.Request, res: Ex.Response, _next: any) => {
+app.use((err: Error, req: Ex.Request, res: Ex.Response, next: any) => {
   console.error(err.message); // TODO logging
   if (req.path.startsWith("/api")) {
-    Controller.api(res, {
-      status: 500
-    });
+    Controller.api(res, new Promise(() => {
+      return {status: 500}
+    }), next);
   } else {
-    Controller.page(res, {
-      status: 500,
-      title: 'Error',
-      templateName: 'error'
-    });
+    Controller.page(res, new Promise(() => {
+      return {
+        status: 500,
+        title: 'Error',
+        templateName: 'error'
+      }
+    }), next);
   }
 });
 

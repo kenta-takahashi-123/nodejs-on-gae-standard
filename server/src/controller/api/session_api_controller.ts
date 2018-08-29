@@ -1,14 +1,16 @@
 import * as Express from "express";
-import { AuthenticationService } from "../../service/authentication_service";
-import { SessionApiResponse } from "shared/response";
+import {AuthenticationService} from "../../service/authentication_service";
+import {SessionApiResponse} from "../../../../shared/src/response";
 
 export class SessionApiController {
-  static get(req: Express.Request): SessionApiResponse {
-    let user = AuthenticationService.authenticate({ id: req.params.sessionId });
-    if (user !== null) {
-      return { status: 200, user }
-    } else {
-      return { status: 404 }
-    }
+  static get(req: Express.Request): Promise<SessionApiResponse> {
+    let user = AuthenticationService.authenticate({id: req.params.sessionId});
+    return new Promise((res, _rej) => {
+      if (user !== null && user !== "error") {
+        res({status: 200, user});
+      } else {
+        res({status: 404});
+      }
+    });
   }
 }

@@ -1,0 +1,6 @@
+.idea
+.gcloudignore
+.git
+.gitignore
+client
+node_modules

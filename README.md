@@ -46,7 +46,7 @@ export class ServerConfig {
 
 ### Local development
 
-1. `yarn run start:local`
+1. `yarn run serve`
 
 ### Deployment
 

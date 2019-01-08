@@ -14,10 +14,10 @@
     "compile": "tsc",
     "deploy": "npm-run-all compile build && gcloud config configurations activate PROJECT_NAME && gcloud app deploy --project=PROJECT_NAME --stop-previous-version --quiet",
     "start": "NODE_ENV=production node server/src/app.js",
-    "start:local": "npm-run-all compile --parallel start:local:*",
-    "start:local:client": "webpack --progress --mode development --watch",
-    "start:local:compile": "tsc -w --preserveWatchOutput",
-    "start:local:server": "nodemon server/src/app.js"
+    "serve": "npm-run-all compile --parallel serve:*",
+    "serve:client": "webpack --progress --mode development --watch",
+    "serve:compile": "tsc -w --preserveWatchOutput",
+    "serve:server": "nodemon server/src/app.js"
   },
   "engines": {
     "node": "8.x.x"

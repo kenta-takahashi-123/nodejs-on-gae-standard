@@ -7,8 +7,8 @@ export class ChatService {
   private static store = DatastoreAccessor.datastore;
 
   static list(limit: number = 5): Promise<Chat[]> {
-    return this.store.runQuery(this.store.createQuery(this.entityName).limit(limit)).then(results => {
-      return results[0].map(x => x as Comment);
+    return this.store.runQuery(this.store.createQuery(this.entityName).limit(limit)).then((results: any) => {
+      return results[0].map((x: any) => x as Chat);
     });
   }
 

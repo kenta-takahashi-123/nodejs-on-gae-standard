@@ -1,4 +1,4 @@
-import {ServerConfig} from "../../server_config";
+import {ServerConfig} from "../../server-config";
 import Datastore = require("@google-cloud/datastore");
 
 export class DatastoreAccessor {

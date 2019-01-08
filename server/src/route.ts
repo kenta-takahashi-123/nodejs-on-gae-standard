@@ -1,9 +1,9 @@
 import * as Ex from "express";
-import { IndexController } from "./controller/page/index_controller";
-import { SessionApiController } from "./controller/api/session_api_controller";
+import { IndexController } from "./controller/page/index-controller";
+import { SessionApiController } from "./controller/api/session-api-controller";
 import { Controller } from "./controller/controller";
 import { Env } from "../../shared/src/env";
-import {ChatApiController} from "./controller/api/chat_api_controller";
+import {ChatApiController} from "./controller/api/chat-api-controller";
 
 const express = require('express');
 const renderer = require('ejs');

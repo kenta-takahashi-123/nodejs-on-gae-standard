@@ -19,13 +19,13 @@ A main focus of this application is a useful and extensional project configurati
 1. `npm install -g yarn`
 2. `yarn install`
 
-### Add `server/src/server_config.ts`
+### Add `server/src/server-config.ts`
 
 1. Access to GCP console and create your GCP project.
     - https://console.cloud.google.com/home/dashboard
 2. Create a service account and save credentials.
     - https://console.cloud.google.com/iam-admin/serviceaccounts
-3. Create `server/src/server_config.ts` and add credentials as below:
+3. Create `server/src/server-config.ts` and add credentials as below:
 
 ```typescript
 export class ServerConfig {

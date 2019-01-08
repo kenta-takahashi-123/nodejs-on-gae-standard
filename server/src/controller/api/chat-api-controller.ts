@@ -1,6 +1,6 @@
 import * as Express from "express";
 import {ChatApiResponse} from "../../../../shared/src/response";
-import {ChatService} from "../../service/chat_service";
+import {ChatService} from "../../service/chat-service";
 import {Status} from "../../../../shared/src/response/status";
 
 export class ChatApiController {

@@ -10,7 +10,7 @@ A main focus of this application is a useful and extensional project configurati
 ### Prerequisites
 
 - Google Cloud SDK
-- Node.js v8
+- Node.js v10
     - yarn
 - git CLI
 - A project of Google Cloud Platform
@@ -25,7 +25,7 @@ A main focus of this application is a useful and extensional project configurati
     - https://console.cloud.google.com/home/dashboard
 2. Create a service account and save credentials.
     - https://console.cloud.google.com/iam-admin/serviceaccounts
-3. Create `server/src/server-config.ts` and add credentials as below:
+3. Copy [server/src/server-config.template.ts](server/src/server-config.template.ts) to [server/src/server-config.ts](server/src/server-config.ts) and add credentials as below:
 
 ```typescript
 export class ServerConfig {

@@ -20,7 +20,7 @@
     "serve:server": "nodemon server/src/app.js"
   },
   "engines": {
-    "node": "8.x.x"
+    "node": "^10"
   },
   "dependencies": {
     "@google-cloud/datastore": "^1.4.2",

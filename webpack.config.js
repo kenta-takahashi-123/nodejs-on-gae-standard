@@ -34,6 +34,9 @@ module.exports = (env, argv) => {
           filename: "styles.bundle.css"
         })
       ],
+      resolve: {
+        extensions: ['.ts', '.js', '.json']
+      },
       devtool: isDevelopment ? "inline-source-map" : false,
       module: {
         rules: [

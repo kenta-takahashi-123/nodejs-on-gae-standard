@@ -73,7 +73,8 @@ module.exports = (env, argv) => {
               {
                 loader: 'sass-loader',
                 options: {
-                  sourceMap: isDevelopment
+                  sourceMap: isDevelopment,
+                  implementation: require('sass')
                 }
               }
             ]

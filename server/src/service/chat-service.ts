@@ -1,6 +1,6 @@
 import {DatastoreAccessor} from "./datastore/datastore";
 import {Chat} from "../../../shared/src/entity";
-import {DatastoreKey} from "@google-cloud/datastore/entity";
+import {entity} from "@google-cloud/datastore/build/src/entity";
 
 export class ChatService {
   private static entityName = 'Chat';
@@ -12,7 +12,7 @@ export class ChatService {
     });
   }
 
-  static add(comment: Chat): Promise<DatastoreKey> {
+  static add(comment: Chat): Promise<entity.Key> {
     let newChatKey = this.store.key([ChatService.entityName]);
     return this.store.save({
       key: newChatKey,

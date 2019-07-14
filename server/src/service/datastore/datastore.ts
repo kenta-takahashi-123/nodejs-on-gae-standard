@@ -1,5 +1,5 @@
 import {ServerConfig} from "../../server-config";
-import Datastore = require("@google-cloud/datastore");
+import {Datastore} from "@google-cloud/datastore";
 
 export class DatastoreAccessor {
   static datastore = new Datastore({

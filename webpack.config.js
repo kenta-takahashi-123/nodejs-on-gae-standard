@@ -1,5 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const buildPath = {
   source: path.join(__dirname, 'client/src/'),
   styles: path.join(__dirname, 'client/scss/'),
@@ -38,6 +40,12 @@ module.exports = (env, argv) => {
         extensions: ['.ts', '.js', '.json']
       },
       devtool: isDevelopment ? "inline-source-map" : false,
+      optimization: {
+        minimizer: isDevelopment ? [] : [
+          new TerserPlugin({}),
+          new OptimizeCSSAssetsPlugin({})
+        ]
+      },
       module: {
         rules: [
           {

@@ -10,14 +10,14 @@
     "url": "https://github.com/rika-t/nodejs-on-gae-standard.git"
   },
   "scripts": {
-    "build":         "webpack --progress --mode production",
-    "compile":       "tsc",
-    "deploy":        "npm-run-all compile build && gcloud config configurations activate PROJECT_NAME && gcloud app deploy --project=PROJECT_NAME --stop-previous-version --quiet",
-    "start":         "NODE_ENV=production node server/src/app.js",
-    "serve":         "npm-run-all compile --parallel serve:*",
-    "serve:client":  "webpack --progress --mode development --watch",
+    "build": "webpack --progress --mode production",
+    "compile": "tsc",
+    "deploy": "npm-run-all compile build && gcloud config configurations activate PROJECT_NAME && gcloud app deploy --project=PROJECT_NAME --stop-previous-version --quiet",
+    "start": "NODE_ENV=production node server/src/app.js",
+    "serve": "npm-run-all compile --parallel serve:*",
+    "serve:client": "webpack --progress --mode development --watch",
     "serve:compile": "tsc -w --preserveWatchOutput",
-    "serve:server":  "nodemon server/src/app.js"
+    "serve:server": "nodemon server/src/app.js"
   },
   "engines": {
     "node": "^10"

@@ -16,6 +16,7 @@ node_modules/
 
 # Build files
 server/public/assets/main.bundle.js
+server/public/assets/main.bundle.js.LICENSE.txt
 server/public/assets/styles.bundle.css
 server/public/assets/main.bundle.js.map
 server/public/assets/styles.bundle.css.map

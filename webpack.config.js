@@ -66,9 +66,11 @@ module.exports = (env, argv) => {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: isDevelopment,
-                  plugins: [
-                    AutoPrefixer
-                  ]
+                  postcssOptions: {
+                    plugins: [
+                      [AutoPrefixer, { grid: true }],
+                    ]
+                  }
                 }
               },
               {

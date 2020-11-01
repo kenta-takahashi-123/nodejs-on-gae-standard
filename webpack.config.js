@@ -2,24 +2,19 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const AutoPrefixer = require('autoprefixer');
 const buildPath = {
   source: path.join(__dirname, 'client/src/'),
   styles: path.join(__dirname, 'client/scss/'),
   output: path.join(__dirname, 'server/public/assets/')
 };
-const autoPrefixerTargetBrowsers = [
-  "last 1 versions",
-  "> 1%",
-  "maintained node versions",
-  "not dead"
-];
 
 module.exports = (env, argv) => {
   console.log("webpack mode: " + argv.mode);
   const isDevelopment = argv.mode === 'development';
 
   console.log("target browsers: ");
-  console.log(require("browserslist")(autoPrefixerTargetBrowsers).map(x => "  - " + x).join("\n"));
+  console.log(require("browserslist")().map(x => "  - " + x).join("\n"));
 
   return [
     {
@@ -72,9 +67,7 @@ module.exports = (env, argv) => {
                 options: {
                   sourceMap: isDevelopment,
                   plugins: [
-                    require("autoprefixer")({
-                      browsers: autoPrefixerTargetBrowsers
-                    })
+                    AutoPrefixer
                   ]
                 }
               },

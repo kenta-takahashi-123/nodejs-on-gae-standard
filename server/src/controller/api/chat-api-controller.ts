@@ -12,7 +12,7 @@ export class ChatApiController {
 
   static post(req: Express.Request): Promise<ChatApiResponse> {
     console.log(req.query["text"]);
-    return ChatService.add({text: req.query["text"]}).then(() => {
+    return ChatService.add({text: req.query["text"] as string}).then(() => {
       return {status: Status.Created};
     });
   }
